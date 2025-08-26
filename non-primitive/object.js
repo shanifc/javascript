@@ -1,4 +1,4 @@
-// object is a collectionj of key-value pairs
+// object is a collection of key-value pairs
 // used to multiple values in a single variables & the value
 
 const person = {
