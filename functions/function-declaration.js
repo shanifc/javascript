@@ -5,9 +5,11 @@
 //block of codes
 //}
 
-
+// key feauturs
+// 1.hoisting
+// 2.named function
 function greet(name){//parameter
     console.log("hello , " + name +"!"); 
 }
 
-greet("shanif");//argument
+greet("shanif");//argument(actual value)
