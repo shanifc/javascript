@@ -1,0 +1,7 @@
+pre-definend-function
+
+uses
+
+1. time saving
+2. readebility
+3. optimising
