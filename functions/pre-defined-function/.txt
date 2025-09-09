@@ -5,3 +5,10 @@ uses
 1. time saving
 2. readebility
 3. optimising
+
+
+math-functions
+
+1. optimising
+2. reliable
+3. accuracy
