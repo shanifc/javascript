@@ -5,5 +5,5 @@ console.log(text.charAt(1));
 
 // charCodeAt
 
-let str = "A";
+let str = "y";
 console.log(str.charCodeAt(0));

@@ -1,0 +1,4 @@
+rest parameters(...)
+
+the rest parameters allows a function to accepy infinite number of argument as an array.
+
