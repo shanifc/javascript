@@ -1,3 +1,5 @@
+// it is a way to unpack values from arrays into distinct variables.
+
 const  numbers =[10,20,30,40];
 
 // basic destructuring

@@ -1,3 +1,5 @@
+// it is a way to unpack values from objects into distinct variables.
+
 const person = { name: "shanif", age: 20, country: "india" };
 
 // basic destructuring
