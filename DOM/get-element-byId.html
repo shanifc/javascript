@@ -1,0 +1,23 @@
+<!-- get getElementById is a js method using to select an ghtml element by its  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="mainHeading">welcome</h1>
+    <button onclick="changeHeading()">Change heading</button>
+
+    <script>
+        function changeHeading(){
+            // using getElementById to access the heading
+            const heading = document.getElementById("mainHeading");
+             //changing the text content of the heading
+            heading.textContent = "hello, you clicked the button!!"
+        }
+    </script>
+</body>
+</html>
