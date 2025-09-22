@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica,sans-serif;
+            margin: 20px;
+        }
+
+        input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 300px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h2>Register Form</h2>
+
+    <form id="myform" onsubmit="">
+        <label>Name:</label>
+        <input type="text" id="name" name="name">
+        <span class="error" id="nameError"></span>
+
+        <label>Email:</label>
+        <input type="text" id="email" name="email">
+        <span class="error" id="emailError"></span>
+
+        <label>PhoneNumber:</label>
+        <input type="text" id="phone" name="phone">
+        <span class="error" id="phoneError"></span>
+        <button type="submit">submit</button>
+    </form>
+</body>
+
+</html>

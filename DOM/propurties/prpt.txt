@@ -1,0 +1,1 @@
+text content , inner-text, inner-html  are propurties used to acccess or change the contents insert the elements.
