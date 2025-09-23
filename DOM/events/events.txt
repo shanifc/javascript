@@ -1,0 +1,24 @@
+EVENT -
+
+An event is an action or occuarence that happen in the browser
+
+eg: 1. a user click in button
+    2.form submit
+    3.mouse howering
+    4.typing input field
+
+
+EVENT LISTNERS -
+
+An event LISTNERS is a functioning JS that wait for an event to accure html elements and executs code in response.
+
+using: 1. to make website intracte
+       2.to supparate html and JS
+
+EVENT HANDLING -
+
+it means waiting JS code that will run when a specific event occuare.
+
+
+
+

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa Client Intake - Validation Example</title>
+    <style>
+        body {
+            font-family: cursive;
+            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+            background:
+                radial-gradient(1000px 600px at 90% 30%, rgba(243, 79, 154, 0.18), transparent 15%),
+                linear-gradient(180deg, #240032 0%, #3a0a49 35%, #8e1e63 60%, #2b0a2f 100%);
+            color: white;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .row>div {
+            flex: 1;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            opacity: .8;
+        }
+
+        .error {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            margin-top: 6px;
+            min-height: 1em;
+        }
+
+        .invalid {
+            border-color: #b00020;
+            box-shadow: 0 0 0 3px rgba(176, 0, 32, 0.06);
+        }
+
+        .btn {
+            margin-top: 18px;
+            padding: 10px 18px;
+            border: 0;
+            background: #333;
+            color: #fff;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        .small {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Spa Client Intake - Validation</h2>
+    <form onsubmit="return validateForm()">
+        <div class="row">
+            <div>
+                <label>First Name:</label>
+                <input id="firstName" name="firstName" type="text" placeholder="First Name" />
+                <span class="error" id="firstNameError"></span>
+            </div>
+            <div>
+                <label>Last Name:</label>
+                <input id="lastName" name="lastName" type="text" placeholder="Last Name" />
+                <span class="error" id="lastNameError"></span>
+            </div>
+        </div>
+
+        <label>Phone:</label>
+        <input type="text" id="phone" name="phone">
+        <span class="error" id="phoneError"></span>
+
+        <label>Email:</label>
+        <input type="text" id="email" name="email">
+        <span class="error" id="emailError"></span>
+
+        <label>Address:</label>
+        <input type="text" id="addr1" name="address">
+        <span class="error" id="addressError"></span>
+
+        <label>Street Address:</label>
+        <input type="text" id="streetAddress" name="streetAddress">
+        <span class="error" id="streetAddressError"></span>
+
+        <label>Address Line 2:</label>
+        <input type="text" id="addr2" name="addressLine2">
+        <span class="error" id="addr2Error"></span>
+
+        <div class="row">
+            <div>
+                <label>City:</label>
+                <input id="city" name="city" type="text" />
+                <span class="error" id="cityError"></span>
+            </div>
+            <div>
+                <label>State/Region/Province:</label>
+                <input id="state" name="state" type="text" />
+                <span class="error" id="stateError"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+                <label>Postal / Zip Code:</label>
+                <input id="postal" name="postal" type="text" />
+                <span class="error" id="postalError"></span>
+            </div>
+            <div>
+                <label>Country:</label>
+                <select id="country" name="country">
+                    <option value="">Choose country</option>
+                    <option value="IN">India</option>
+                    <option value="US">United States</option>
+                    <option value="GB">United Kingdom</option>
+                </select>
+                <span class="error" id="countryError"></span>
+            </div>
+        </div>
+
+        <button class="btn" type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            // Clear previous errors
+            const fields = [
+                "firstName", "lastName", "phone", "email",
+                "addr1", "streetAddress", "addr2",
+                "city", "state", "postal", "country"
+            ];
+            fields.forEach(id => {
+                const errorElement = document.getElementById(id + "Error");
+                if (errorElement) errorElement.innerText = "";
+            });
+
+            let isValid = true;
+
+            // Name validation
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            if (firstName === "") {
+                document.getElementById("firstNameError").innerText = "First name is required";
+                isValid = false;
+            }
+            if (lastName === "") {
+                document.getElementById("lastNameError").innerText = "Last name is required";
+                isValid = false;
+            }
+
+            // Phone validation
+            const phone = document.getElementById("phone").value.trim();
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phone)) {
+                document.getElementById("phoneError").innerText = "Phone number must be 10 digits";
+                isValid = false;
+            }
+
+            // Email validation
+            const email = document.getElementById("email").value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerText = "Invalid email format";
+                isValid = false;
+            }
+
+            // Address validations
+            const addr1 = document.getElementById("addr1").value.trim();
+            const streetAddress = document.getElementById("streetAddress").value.trim();
+            if (addr1 === "") {
+                document.getElementById("addressError").innerText = "Address is required";
+                isValid = false;
+            }
+            if (streetAddress === "") {
+                document.getElementById("streetAddressError").innerText = "Street address is required";
+                isValid = false;
+            }
+
+            // City
+            const city = document.getElementById("city").value.trim();
+            if (city === "") {
+                document.getElementById("cityError").innerText = "City is required";
+                isValid = false;
+            }
+
+            // State
+            const state = document.getElementById("state").value.trim();
+            if (state === "") {
+                document.getElementById("stateError").innerText = "State is required";
+                isValid = false;
+            }
+
+            // Postal code
+            const postal = document.getElementById("postal").value.trim();
+            if (postal === "") {
+                document.getElementById("postalError").innerText = "Postal code is required";
+                isValid = false;
+            }
+
+            // Country
+            const country = document.getElementById("country").value;
+            if (country === "") {
+                document.getElementById("countryError").innerText = "Country is required";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+
+</html>
